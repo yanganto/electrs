@@ -18,7 +18,7 @@ pub fn precache(chain: &ChainQuery, scripthashes: Vec<FullHash>) {
     info!("Pre-caching stats and utxo set for {} scripthashes", total);
 
     let pool = rayon::ThreadPoolBuilder::new()
-        .num_threads(16)
+        .num_threads(32)
         .thread_name(|i| format!("precache-{}", i))
         .build()
         .unwrap();
